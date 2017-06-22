@@ -5,7 +5,7 @@ class User <ActiveRecord::Base
     has_many :followers
     has_many :following
 
-    # validates_presence_of :email, :avatar_url, :username, :password
+    validates_presence_of :email, :avatar_url, :username, :password
     validates_uniqueness_of :email, :username
     
     def following_count
