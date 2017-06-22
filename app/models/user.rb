@@ -19,4 +19,8 @@ class User <ActiveRecord::Base
     def isFollowing
         Follower.where(user_id: current_user.id, following: self.id )
     end
+    
+    def posts_count 
+       Post.where(user_id: self.id) 
+    end
 end
