@@ -24,9 +24,4 @@ class User <ActiveRecord::Base
        Post.where(user_id: self.id) 
     end
     
-    def avatar
-        user = User.where(user_id: self.id)
-        user.avatar_url
-    end
-
 end
