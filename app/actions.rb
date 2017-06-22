@@ -122,7 +122,7 @@ end
 
 get '/:username' do
     @username = params[:username]
-    @userId = User.where(username: username)
+    @userId = User.where(username: @username)
     # @user_posts = @userId.posts_count
     erb(:userpage)
 end
