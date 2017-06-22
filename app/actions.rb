@@ -4,6 +4,12 @@ helpers do
     end
 end
 
+helpers do
+    def find_user
+        User.where(username: self).username
+    end
+end
+
 get '/' do
     # hello
     @posts = Post.order(created_at: :desc)
