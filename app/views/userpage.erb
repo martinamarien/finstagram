@@ -1,2 +1,40 @@
-<span id="follow"><h5><b><%= @user.followers_count %></b> followers</h5></span>
 
+<div class="profile">
+    <div class="content container" id="userInfo">
+        <div class="row" id="profileInfo">
+            <div class="col-md-4 col-xs-6" id="userInformation">
+                <img class="img-responsive" src='<%= @user.avatar_url %>'>
+            </div>
+            <div class="col-md-8 col-xs-6">
+                <span><h2 id="username"><%= @user.username %></h2></span>
+
+                <div class="user-stats">
+                    <span id="postNum"><h5><b><%= @user.posts_count.count %></b> 
+                        <% if @user.posts_count.count == 1 %>
+                            post
+                        <% else %>
+                            posts
+                        <% end %>
+                    </h5></span>
+                    <span id="follow"><h5><b><%= @user.followers_count%></b> followers</h5></span>
+                    <span id="follow"><h5><b><%= @user.following_count%></b> following</h5></span>
+                </div>
+                <div class="bio">
+                    <h5><%= @user.bio %></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content container" id="userpagePosts">
+        <div class="row" id="userposts">
+            <% if @user.posts_count %>
+                <% @user.posts_count.each do |post| %>
+                    <div class="col-md-4 col-sm-6 col-xs-12" id="indivPosts">
+                        <img class="img-responsive" src="<%= post.photo_url %>">
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
