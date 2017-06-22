@@ -122,6 +122,5 @@ end
 
 get '/:username' do
     @user = User.find_by(username: params[:username])
-
     erb(:userpage)
 end
