@@ -23,10 +23,5 @@ class User <ActiveRecord::Base
     def posts_count 
        Post.where(user_id: self.id) 
     end
-    
-    def find_user
-         User.find_by(self.id)
-    end
-    
-    
+
 end
