@@ -24,4 +24,7 @@ class User <ActiveRecord::Base
        Post.where(user_id: self.id) 
     end
     
+    def find_user
+        User.where(username: self).username
+    end
 end
