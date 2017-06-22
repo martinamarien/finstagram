@@ -1,0 +1,50 @@
+
+        
+        <div class="totalPosts">
+            <h1>Join Finstagram</h1>
+        </div>
+
+
+
+<ul class="errors">
+    <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %> 
+</ul>
+
+
+<article class="login">
+    <form class="logon" method="POST" action="/signup">
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="loginText" type="email" id="email" name="email" value="<%= @user.email %>">
+        </div>
+        
+        <div class="form-group">
+            <label for="avatar_url">Avatar URL</label>
+            <input class="loginText" type="text" id="avatar_url" name="avatar_url" value="<%= @user.avatar_url %>">
+        </div>
+        
+        
+        <div class="form-group">
+            <label for="bio">Bio: </label>
+            <input class="loginText" type="text" id="bio" name="bio" value="<%= @user.bio %>">
+        </div>
+        
+        <div class="form-group">    
+            <label for="username">Username</label>
+            <input class="loginText" type="text" id="username" name="username" value="<%= @user.username %>">
+        </div>    
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="loginText" type="password" id="password" name="password">
+        </div>
+        
+        <div class="form-group">    
+            <button class="button" type="submit">Sign Up</button>
+        </div>
+        
+    </form>
+</article>

@@ -1,0 +1,5 @@
+<div class="totalPosts">
+    <h1><%= @post.user.username %></h1>
+</div>
+<%= erb(:'shared/post', { locals: {post: @post, allow_new_comment: true }}) %>
+

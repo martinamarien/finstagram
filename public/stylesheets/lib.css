@@ -9,7 +9,6 @@ body, input {
 }
 
 a {
-  color: #8da7b8;
   text-decoration: none;
 }
 
@@ -119,3 +118,5 @@ main {
 .new-comment input[type="text"] {
   width: 100%;
 }
+
+

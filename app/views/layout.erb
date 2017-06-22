@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+    <head>
+        <head>
+        <link rel="stylesheet" href="/stylesheets/normalize.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,700italic,700,300">
+        <link rel="stylesheet" href="/stylesheets/lib.css">
+        <link rel="stylesheet" href="/stylesheets/app.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <title>Finstagram</title>
+    </head>
+
+    <body>
+        <header>
+
+            <div class="left">
+                <div class="logo">
+                    <a href="/"><img src="/images/sharkFin.png"></a>
+                </div>
+                <div class="finsta">
+                    <a href="/">Finstagram</a>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="currentUser">
+                    <% if current_user %>
+                    
+                        <a class="user" href='/<%= current_user.username %>'}><%= current_user.username %></a>
+                        <a class="logout" href = "/logout">Logout</a>
+                    <% else %>
+                        <a class="user" href = "/login">Login</a>
+                        <a href="/signup">Signup</a>
+                    <% end %>
+                </div>
+            </div>
+
+        </header>
+        
+        <main role="main">
+            <%= yield %>
+        </main>
+        
+        
+        
+        <script 
+              src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js">
+        </script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+
+            $(document).ready(function() {
+                
+            });
+            
+            function likePost(id, likeId){
+                console.log(id);
+                var like = $("#post-"+id);
+                console.log(like);
+                var icon = like.find("i");
+                console.log(icon);
+                
+                    $.ajax({
+                        url: function (icon, likeId){
+                            //not already liked
+                            if (icon.hasClass("fa-heart-o")){
+                                var like = "/likes"
+                                console.log(like);
+                                return like;
+                            }
+                            else if (icon.hasClass("fa-heart")) {
+                                //already liked
+                                var unlike = "/likes/"+likeId;
+                                console.log(unlike);
+                                return unlike;
+                            }
+                        },
+                        contentType: 'application/json',
+                        type: 'POST',
+                        data: {
+                            post_id: function (id, likeId) {
+                                if (icon.hasClass("fa-heart-o")){
+                                    console.log(id);
+                                    return id;
+                            }
+                            else if (icon.hasClass("fa-heart")) {
+                                //already liked
+                                return likeId;
+                            }
+                            }
+                        },
+                        success: function(res) {
+                            alert('sucess');
+                            if (icon.hasClass("fa-heart-o")){
+                                icon.removeClass("fa-heart-o").addClass("fa-heart");
+                            }
+                            else if (icon.hasClass("fa-heart")) {
+                                icon.removeClass("fa-heart").addClass("fa-heart-o");
+                            }
+                            
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                            alert('failure');
+                        }
+                    }).done(function() {
+            $( this ).addClass( "done" );
+            });
+            }
+        
+        </script>
+        
+    </body>
+    
+</html>

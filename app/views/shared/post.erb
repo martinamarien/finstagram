@@ -1,0 +1,45 @@
+
+<article class="post">
+    <div class="user-info">
+        <img src="<%= post.user.avatar_url %>" alt="<%= post.user.username %>">
+        <h3><a href='/<%= post.user.username %>'><%= post.user.username %></a></h3>
+        <h4><%= post.humanized_time_ago %></h4>
+    </div>
+    <a class="photo" href="/posts/<%= post.id %>">
+        <img class="pic" src="<%= post.photo_url %>" alt="<%= post.user.username %>">
+    </a>
+
+      <div class="commentsLikes">
+        <%= erb(:"shared/likes", {locals: { post: post }}) %>
+      </div>
+
+    <div class="actions">
+        <%= post.like_count %> likes
+        <span class="comment-count"><%= post.comment_count %> comments</span>
+    </div>
+    
+    <ul class="comments">
+        <li>
+            <p class="username"><%= post.user.username %>: </p>
+            <span>
+                <span><p class="caption"><%= post.caption %></p></span>
+            </span>
+        </li>
+        <% if post.comment_count > 5 %>
+          <li class="loadMore">
+              load more comments
+          </li>
+        <% end %>
+        <% post.comments.each do |comment| %>
+            <li>
+                <p class="username"><%= comment.user.username %>: </p>
+                <p class="caption"><%=comment.text %></p>
+            </li>
+        <% end %>
+    </ul>
+    <% if current_user && allow_new_comment%>
+      <section id="commentBox">
+        <%= erb(:"shared/new_comment", { locals: { post: post}}) %>
+      </section>
+    <% end %>
+</article>

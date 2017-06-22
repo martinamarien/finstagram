@@ -1,0 +1,25 @@
+
+        <div class="totalPosts">
+            <h1>Login to Finstagram</h1>
+        </div>
+        
+<%= @error_message if @error_message %>
+
+<article class="login">
+    <form class="logon" method="POST" actions="/login">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input class="loginText" type="text" id="username" name="username" maxlength="60">
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="loginText" type="password" id="password" name="password" maxlength="60">
+        </div>
+        
+        <div class="form-group">
+            <button class="button" type="submit">Login</button>
+        </div>
+        
+    </form>
+</article>

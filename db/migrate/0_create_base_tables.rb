@@ -27,7 +27,7 @@ class CreateBaseTables < ActiveRecord::Migration
       t.references :post
       t.timestamps
     end
-
+    
   end
 
 end
