@@ -9,8 +9,8 @@
                 <span><h2 id="username"><%= @userId.username %></h2></span>
                     
                 <div class="user-stats">
-                    <span id="postNum"><h5><b><%= @user_posts.count %></b> 
-                        <% if @user_posts.count == 1 %> 
+                    <span id="postNum"><h5><b><%= @userId.posts_count.count %></b> 
+                        <% if @userId.posts_count.count == 1 %> 
                             post 
                         <% else %> 
                             posts 
@@ -28,8 +28,8 @@
     
     <div class="content container" id="userpagePosts">
         <div class="row" id="userposts">
-            <% if @user_posts %>
-                <% @user_posts.each do |post| %>
+            <% if @userId.posts_count %>
+                <% @userId.posts_count.each do |post| %>
                     <div class="col-md-4 col-sm-6 col-xs-12" id="indivPosts">
                         <img class="img-responsive" src="<%= post.photo_url %>">
                     </div>
