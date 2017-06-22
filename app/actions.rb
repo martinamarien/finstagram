@@ -11,7 +11,7 @@ get '/' do
 end
 
 get '/signup' do        # if a user navigates too the path '/signup'
-    # @user = User.new    # setup empty @user object
+    @user = User.new    # setup empty @user object
     erb(:signup)        # render "app/views/signup.erb"
 end
 
