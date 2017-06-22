@@ -122,6 +122,6 @@ end
 
 get '/:username' do
     @user = User.find_by(username: params[:username])
-    # @user_posts = @userId.posts_count
+
     erb(:userpage)
 end
