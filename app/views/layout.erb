@@ -32,7 +32,7 @@
                 <div class="currentUser">
                     <% if current_user %>
                     
-                        <a class="user" href='/<%= current_user.username %>'}><%= current_user.username %></a>
+                        <a class="user" href="/<%= current_user.username %>"}><%= current_user.username %></a>
                         <a class="logout" href = "/logout">Logout</a>
                     <% else %>
                         <a class="user" href = "/login">Login</a>
