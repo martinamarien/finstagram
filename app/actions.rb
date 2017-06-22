@@ -120,7 +120,7 @@ delete '/likes/:id' do
     redirect(back)
 end
 
-get '/:username' do
+get "/:username" do
     @userId = User.find_by(username: params[:username])
     @user_posts = @userId.posts
     erb(:userpage)
