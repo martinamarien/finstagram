@@ -25,7 +25,8 @@ class User <ActiveRecord::Base
     end
     
     def avatar
-        User.avatar_url
+        user = User.where(user_id: self.id)
+        user.avatar_url
     end
 
 end
