@@ -1,3 +1,7 @@
-
-
-<h1><%= @user.posts_count.count %> </h1>
+<span id="postNum"><h5><b><%= @user.posts_count.count %></b> 
+                        <% if @user.posts_count.count == 1 %>
+                            post
+                        <% else %>
+                            posts
+                        <% end %>
+                    </h5></span>
