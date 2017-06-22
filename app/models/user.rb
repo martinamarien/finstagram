@@ -23,4 +23,10 @@ class User <ActiveRecord::Base
     def posts_count 
        Post.where(user_id: self.id) 
     end
+    
+    def avatar
+        if self.avatar_url
+           print "self.avatar_url" 
+        end
+    end
 end
