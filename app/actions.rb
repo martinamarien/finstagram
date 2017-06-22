@@ -2,9 +2,7 @@ helpers do
     def current_user
         User.find_by(id: session[:user_id])
     end
-end
-
-helpers do
+    
     def find_user
         User.where(username: self).username
     end
@@ -127,9 +125,8 @@ delete '/likes/:id' do
 end
 
 get '/:username' do
-    @username = (params[:username]).to_s
-    @userID = User.where(username: @username)
-    @userId = User.find_by(username: @username)
+    @username = params[:username]
+    @userID = @username.find_user
     # @user_posts = @userId.posts_count
     erb(:userpage)
 end
