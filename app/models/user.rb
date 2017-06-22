@@ -24,11 +24,9 @@ class User <ActiveRecord::Base
        Post.where(user_id: self.id) 
     end
     
-    # def avatar
-    #     if self.avatar_url
-    #       self.avatar_url 
-    #     end
-    # end
+    def find_user
+         User.find_by(self.id)
+    end
     
     
 end

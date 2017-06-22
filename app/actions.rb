@@ -121,7 +121,7 @@ delete '/likes/:id' do
 end
 
 get "/:username" do
-    username = params[:username]
+    @username = params[:username]
     @userId = User.find_by(username: username)
     # @user_posts = @userId.posts_count
     erb(:userpage)
