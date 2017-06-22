@@ -23,5 +23,9 @@ class User <ActiveRecord::Base
     def posts_count 
        Post.where(user_id: self.id) 
     end
+    
+    def avatar
+        User.avatar_url
+    end
 
 end
