@@ -13,7 +13,7 @@ class User <ActiveRecord::Base
     end
     
     def followers_count
-        Follower.where(followers: self.id).count
+        Follower.where(following_id: self.id).count
     end
     
     def isFollowing
