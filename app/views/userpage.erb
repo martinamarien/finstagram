@@ -6,7 +6,21 @@
                 <img class="img-responsive" src='<%= @user.avatar_url %>'>
             </div>
             <div class="col-md-8 col-xs-6">
-                <span><h2 id="username"><%= @user.username %></h2></span>
+                <div class="userAndFolow">
+                    <h2 id="username"><%= @user.username %></h2>
+
+                    <%if current_user.id == @user.id %>
+                    <% else %>
+                        <button type="submit" class="btn btn-primary">
+                            <% if @user.isFollowing(current_user) %>
+                                Follow
+                            <% else %>
+                                Following
+                            <% end %>
+                        <% end %>
+                    </button>
+
+                </div>
 
                 <div class="user-stats">
                     <span id="postNum"><h5><b><%= @user.posts_count.count %></b> 

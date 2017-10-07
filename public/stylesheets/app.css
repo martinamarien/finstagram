@@ -361,6 +361,8 @@ main {
   color: #424242;
   font-weight: normal !important;
   margin-bottom: 10px;
+  display: inline-flex;
+  margin-right: 20px;
 }
 
 .user-stats {
@@ -388,4 +390,15 @@ main {
 
 #postNum {
   width: 75px !important;
+}
+
+.userAndFolow button {
+  margin-bottom:  10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
 }

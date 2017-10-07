@@ -12,12 +12,20 @@ class User <ActiveRecord::Base
         Follower.where(user_id: self.id).count
     end
     
+    # def followers_count
+    #     Follower.where(following_id: self.id).count
+    # end
+    
     def followers_count
-        Follower.where(following_id: self.id).count
+        Follower.where(followers: self.id).count
     end
     
     def posts_count 
        Post.where(user_id: self.id) 
+    end
+    
+    def isFollowing (current_user) 
+        Follower.where(followers: self.id, user_id: current_user.id)
     end
     
 end
